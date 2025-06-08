@@ -9,9 +9,9 @@ This is the backend API for **Finilo**, built with Express.js. It handles user a
 ## 🛠 Tech Stack
 - Framework: Express.js
 - Auth: JWT
-- DB: PostgreSQL (via Prisma or Knex)
+- DB: PostgreSQL (via Knex)
 - Notifications: Resend, Expo push
-- Scheduler: Node-cron or BullMQ
+- Scheduler: BullMQ
 
 ## 🚀 Getting Started
 ```bash
