@@ -52,8 +52,6 @@ Use pnpm workspaces to run scripts across apps and packages.
 	•	Multi-device sync and backup
 	•	Premium plans with smart alerts
 
-📄 License
-
 ## 📄 License
 
 This source code is **not licensed for reuse, redistribution, or modification**.  
