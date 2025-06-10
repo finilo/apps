@@ -36,7 +36,7 @@ function App(): React.JSX.Element {
           Never miss a subscription again
         </Text>
         <Text style={[styles.description, {color: isDarkMode ? '#aaa' : '#888'}]}>
-          Track your subscriptions, get reminders before renewals, and take control of your recurring expenses.
+          Track your subscriptions, get reminders before renewals, and take control of your recurring expenses all in one place at the same time.
         </Text>
         <View style={styles.versionContainer}>
           <Text style={[styles.version, {color: isDarkMode ? '#888' : '#aaa'}]}>
