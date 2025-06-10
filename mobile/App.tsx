@@ -14,37 +14,55 @@ import {
   StatusBar,
   useColorScheme,
 } from 'react-native';
+import {PaperProvider} from 'react-native-paper';
+import {ThemeProvider, useThemeToggle} from './src/contexts/ThemeContext';
+import {Switch} from 'react-native-paper';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
+  const {isDark, toggleTheme, theme} = useThemeToggle();
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? '#1a1a1a' : '#f5f5f5',
+    backgroundColor: isDark ? '#1a1a1a' : '#f5f5f5',
   };
 
+
+
   return (
-    <SafeAreaView style={[styles.container, backgroundStyle]}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <View style={styles.content}>
-        <Text style={[styles.title, {color: isDarkMode ? '#fff' : '#333'}]}>
-          Finilo
-        </Text>
-        <Text style={[styles.subtitle, {color: isDarkMode ? '#ccc' : '#666'}]}>
-          Never miss a subscription again
-        </Text>
-        <Text style={[styles.description, {color: isDarkMode ? '#aaa' : '#888'}]}>
-          Track your subscriptions, get reminders before renewals, and take control of your recurring expenses all in one place at the same time.
-        </Text>
-        <View style={styles.versionContainer}>
-          <Text style={[styles.version, {color: isDarkMode ? '#888' : '#aaa'}]}>
-            React Native + TypeScript
-          </Text>
-        </View>
-      </View>
-    </SafeAreaView>
+    <ThemeProvider>
+      <PaperProvider theme={theme}>
+        <SafeAreaView style={[styles.container, backgroundStyle]}>
+          <StatusBar
+            barStyle={isDark ? 'light-content' : 'dark-content'}
+            backgroundColor={backgroundStyle.backgroundColor}
+          />
+          <View style={styles.content}>
+            <Text style={[styles.title, {color: isDark ? '#fff' : '#333'}]}>
+              Finilo
+            </Text>
+            <Text style={[styles.subtitle, {color: isDark ? '#ccc' : '#666'}]}>
+              Never miss a subscription again
+            </Text>
+            <Text
+              style={[styles.description, {color: isDark ? '#aaa' : '#888'}]}>
+              Track your subscriptions, get reminders before renewals, and take
+              control of your recurring expenses all in one place at the same
+              time.
+            </Text>
+            <View style={styles.versionContainer}>
+              <Text style={[styles.version, {color: isDark ? '#888' : '#aaa'}]}>
+                React Native + TypeScript
+              </Text>
+            </View>
+          </View>
+          <View style={styles.themeToggleContainer}>
+            <Switch
+              value={isDark}
+              onValueChange={toggleTheme}
+              color={theme.colors.primary}
+            />
+          </View>
+        </SafeAreaView>
+      </PaperProvider>
+    </ThemeProvider>
   );
 }
 
